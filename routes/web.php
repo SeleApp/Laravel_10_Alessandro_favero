@@ -8,4 +8,4 @@ Route::get('/', function () {
 
 Route::get('/area-riservata', function () {
     return view('area-riservata');
-})->middleware('auth');
+})->middleware('auth')->name('area-riservata');

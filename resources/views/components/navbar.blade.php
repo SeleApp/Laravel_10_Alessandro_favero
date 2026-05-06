@@ -9,19 +9,22 @@
                         <a class="nav-link" href="{{ route('login') }}">Login</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('register') }}">Register</a>
+                        <a class="nav-link" href="{{ route('register') }}">Registrati</a>
                     </li>
                 @endguest
 
                 @auth
                     <li class="nav-item">
-                        <span class="nav-link">{{ auth()->user()->name }}</span>
+                        <span class="nav-link">Ciao {{ Auth::user()->name }}</span>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('area-riservata') }}">Area Riservata</a>
                     </li>
                     <li class="nav-item">
                         <a
                             href="#"
                             class="btn btn-outline-danger btn-sm"
-                            onclick="event.preventDefault(); document.getElementById('logout-form').submit();"
+                            onclick="event.preventDefault(); document.getElementById('form-logout').submit();"
                         >
                             Logout
                         </a>
@@ -32,6 +35,6 @@
     </div>
 </nav>
 
-<form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+<form id="form-logout" action="{{ route('logout') }}" method="POST" class="d-none">
     @csrf
 </form>
