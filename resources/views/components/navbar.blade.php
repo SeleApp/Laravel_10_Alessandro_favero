@@ -21,20 +21,15 @@
                         <a class="nav-link" href="{{ route('area-riservata') }}">Area Riservata</a>
                     </li>
                     <li class="nav-item">
-                        <a
-                            href="#"
-                            class="btn btn-outline-danger btn-sm"
-                            onclick="event.preventDefault(); document.getElementById('form-logout').submit();"
-                        >
-                            Logout
-                        </a>
+                        <form action="{{ route('logout') }}" method="POST" class="m-0 p-0">
+                            @csrf
+                            <button type="submit" class="btn btn-outline-danger btn-sm">
+                                Logout
+                            </button>
+                        </form>
                     </li>
                 @endauth
             </ul>
         </div>
     </div>
 </nav>
-
-<form id="form-logout" action="{{ route('logout') }}" method="POST" class="d-none">
-    @csrf
-</form>
